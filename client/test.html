@@ -1,0 +1,17 @@
+<body>
+  {{> tracking}}
+</body>
+
+<template name="tracking">
+  {{#if unknown}}
+    <div>Unknown tracking number</div>
+  {{/if}}
+  {{#if delivered}}
+    <div>Package has been delivered</div>
+  {{/if}}
+  {{#if out}}
+    <div>Van is at {{lat}}, {{long}}</div>
+  {{else}}
+    <div>Package is in our depot</div>
+  {{/if}}
+</template>
