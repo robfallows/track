@@ -19,7 +19,6 @@ Template.tracking.onCreated(function() {
 Template.tracking.onRendered(function() {
   var self = this;
   self.autorun(function() { // this will rerun whenever lat and/or long and/or status change
-    console.log(Date());
     var lat = self.current.get('lat');
     var long = self.current.get('long');
     var status = self.current.get('status');
@@ -39,6 +38,9 @@ Template.tracking.helpers({
   },
   delivered: function() {
     return Template.instance().current.get('status') === 'Delivered';
+  },
+  initialising: function() {
+    return Template.instance().current.get('lat') === null;
   },
   lat: function() {
     return Template.instance().current.get('lat');
